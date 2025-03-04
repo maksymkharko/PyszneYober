@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Zarobków</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Wybór języka -->
+        <div class="language-selection">
+            <button id="pl" class="lang-btn active">🇵🇱 Polski</button>
+            <button id="en" class="lang-btn">🇬🇧 English</button>
+            <button id="ua" class="lang-btn">🇺🇦 Українська</button>
+        </div>
+
+        <h1 id="title">Kalkulator Zarobków</h1>
+
+        <!-- Wybór transportu -->
+        <div class="transport-selection">
+            <button id="bike" class="transport-btn">🚲 Rower</button>
+            <button id="scooter" class="transport-btn">🛵 Skuter</button>
+            <button id="car" class="transport-btn">🚗 Samochód</button>
+        </div>
+
+        <!-- Formularz główny -->
+        <div class="input-form">
+            <input type="number" id="hours" placeholder="Godziny pracy">
+            <input type="number" id="orders" placeholder="Liczba zamówień">
+            <input type="number" id="tips" placeholder="Napiwki (zł)">
+        </div>
+
+        <!-- Dodatkowe formularze -->
+        <div class="additional-forms">
+            <div class="form">
+                <h2 id="weekdayTitle">Zamówienia w dni robocze</h2>
+                <input type="number" id="weekdayOrders" placeholder="Liczba zamówień">
+            </div>
+            <div class="form">
+                <h2 id="weekendTitle">Zamówienia w weekendy</h2>
+                <input type="number" id="weekendOrders" placeholder="Liczba zamówień">
+            </div>
+        </div>
+
+        <!-- Wyniki w dwóch kolumnach -->
+        <div class="results">
+            <h2 id="resultsTitle">Wyniki:</h2>
+            <div class="results-grid">
+                <div class="column">
+                    <h3>Brutto</h3>
+                    <div class="result-item">
+                        <p>Zarobki za godziny:</p>
+                        <span id="hoursBrutto">0</span> zł
+                    </div>
+                    <div class="result-item">
+                        <p>Bonus za transport:</p>
+                        <span id="transportBrutto">0</span> zł
+                    </div>
+                    <div class="result-item">
+                        <p>Bonus za zamówienia:</p>
+                        <span id="ordersBrutto">0</span> zł
+                    </div>
+                    <div class="result-item">
+                        <p>Napiwki:</p>
+                        <span id="tipsBrutto">0</span> zł
+                    </div>
+                    <div class="result-item total">
+                        <p><strong>Suma Brutto:</strong></p>
+                        <span id="totalBrutto">0</span> zł
+                    </div>
+                </div>
+                <div class="column">
+                    <h3>Netto</h3>
+                    <div class="result-item">
+                        <p>Zarobki za godziny:</p>
+                        <span id="hoursNetto">0</span> zł
+                    </div>
+                    <div class="result-item">
+                        <p>Bonus za transport:</p>
+                        <span id="transportNetto">0</span> zł
+                    </div>
+                    <div class="result-item">
+                        <p>Bonus za zamówienia:</p>
+                        <span id="ordersNetto">0</span> zł
+                    </div>
+                    <div class="result-item">
+                        <p>Napiwki:</p>
+                        <span id="tipsNetto">0</span> zł
+                    </div>
+                    <div class="result-item total">
+                        <p><strong>Suma Netto:</strong></p>
+                        <span id="totalNetto">0</span> zł
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Информация о расчетах -->
+        <div class="calculation-info">
+            <h2 id="infoTitle">Jak obliczamy wyniki?</h2>
+            <p id="infoText">
+                <strong>Brutto:</strong> Zarobki za godziny pracy + bonus za transport + bonus za zamówienia + napiwki.<br>
+                <strong>Netto:</strong> Brutto minus 23% podatku.<br>
+                <strong>Bonus za godziny:</strong> 29 zł/h + 0.10 zł/h za stylizację.<br>
+                <strong>Bonus za telefon:</strong> 0.62 zł/h (do 40 godzin) lub 25 zł (powyżej 40 godzin).<br>
+                <strong>Bonus za transport:</strong> 2 zł/заказ (rower), 2.5 zł/заказ (skuter), 5.5 zł/заказ (samochód).<br>
+                <strong>Bonus za zamówienia:</strong> Zależny od liczby zamówień w dni robocze i weekendy.
+            </p>
+        </div>
+
+        <!-- Информация об авторе и философская цитата -->
+        <div class="author">
+            <p id="authorText">Автор проекта: <a href="https://t.me/clownades" target="_blank">t.me/clownades</a></p>
+            <p id="quoteText">"Пенис — это не просто орган, это состояние души."</p>
+            <p id="disclaimerText">Расчеты примерные и неточные, созданы исключительно для ознакомления. Если вас это не устраивает, автору максимально похуй.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
