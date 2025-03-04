@@ -119,13 +119,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     <strong>Netto:</strong> Brutto minus 23% podatku.<br>
                     <strong>Bonus za godziny:</strong> 30,50 zł/h + 0.10 zł/h za stylizację.<br>
                     <strong>Bonus za telefon:</strong> 0.62 zł/h (do 40 godzin) lub 25 zł (powyżej 40 godzin).<br>
-                    <strong>Bonus za transport:</strong> 2 zł/заказ (rower), 2.5 zł/заказ (skuter), 5.5 zł/заказ (samochód).<br>
+                    <strong>Bonus za transport:</strong> 2 zł/zam (rower), 2.5 zł/zam (skuter), 5.5 zł/zam (samochód).<br>
                     <strong>Bonus za zamówienia:</strong> Zależny od liczby zamówień w dni robocze i weekendy.
                 `,
                 bike: "🚲 Rower",
                 scooter: "🛵 Skuter",
                 car: "🚗 Samochód",
-                authorText: "Автор проекта: <a href='https://t.me/clownades' target='_blank'>t.me/clownades</a>",
+                authorText: "by <a href='https://t.me/clownades' target='_blank'>t.me/clownades</a>",
                 quoteText: "Penis to nie tylko organ, to stan duszy.",
                 disclaimerText: "Obliczenia są przybliżone i nieprecyzyjne, stworzone wyłącznie w celach informacyjnych. Jeśli cię to nie zadowala, autorowi jest to maksymalnie pochuj yopta nachuj blyat."
             },
