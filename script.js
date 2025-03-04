@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 car: "🚗 Samochód",
                 authorText: "by <a href='https://t.me/clownades' target='_blank'>t.me/clownades</a>",
                 quoteText: "Penis to nie tylko organ, to stan duszy.",
-                disclaimerText: "Obliczenia są przybliżone i nieprecyzyjne, stworzone wyłącznie w celach informacyjnych. Jeśli cię to nie zadowala, autorowi jest to maksymalnie pochuj yopta nachuj blyat."
+                disclaimerText: "Obliczenia są przybliżone i nieprecyzyjne, stworzone wyłącznie w celach informacyjnych. Jeśli cię to nie zadowala, autorowi jest to maksymalnie wyjebane!"
             },
             en: {
                 title: "Earnings Calculator",
