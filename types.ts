@@ -1,4 +1,3 @@
-
 export type Language = 'pl' | 'en' | 'ua';
 export type Transport = 'bike' | 'scooter' | 'car';
 
