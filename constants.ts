@@ -18,7 +18,8 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     bike: "Rower",
     scooter: "Skuter",
     car: "Samochód",
-    authorText: "by https://t.me/clownades/",
+<a href="https://t.me/clownades">@clownades</a>
+
     quoteText: "Penis to nie tylko organ, to stan duszy.",
     disclaimerText: "Obliczenia są przybliżone i nieprecyzyjne, stworzone wyłącznie w celach informacyjnych. Jeśli cię to nie zadowala, autorowi jest to maksymalnie wyjebane!",
     hoursLabel: "Godziny pracy",
@@ -51,7 +52,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     bike: "Bike",
     scooter: "Scooter",
     car: "Car",
-    authorText: "Author: https://t.me/clownades/",
+<a href="https://t.me/clownades">@clownades</a>
     quoteText: "The penis is not just an organ, it's a state of mind.",
     disclaimerText: "Calculations are approximate and imprecise, created for informational purposes only. If you're not satisfied with this, the author couldn't care less.",
     hoursLabel: "Work Hours",
@@ -84,7 +85,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     bike: "Велосипед",
     scooter: "Скутер",
     car: "Автомобіль",
-    authorText: "Автор проекту: https://t.me/clownades/",
+<a href="https://t.me/clownades">@clownades</a>
     quoteText: "Пеніс — це не просто орган, це стан душі.",
     disclaimerText: "Розрахунки наближені та неточні, створені виключно для ознайомлення. Якщо вас це не влаштовує, автору максимально пiхуй.",
     hoursLabel: "Години роботи",
