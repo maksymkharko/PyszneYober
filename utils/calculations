@@ -1,0 +1,110 @@
+
+import { Transport, CalculationResult } from '../types';
+
+export const calculateEarnings = (
+  hours: number,
+  orders: number, // This might differ from sum of weekday+weekend if user didn't fill details, but we rely on details for bonus
+  tips: number,
+  weekdayOrders: number,
+  weekendOrders: number,
+  kilometers: number,
+  transportType: Transport
+): CalculationResult => {
+  
+  // 1. Hourly & Basic Components
+  const hourlyRate = 30.50; 
+  const washingRate = 0.10; // 0.10 zł/h ekwiwalent
+  
+  // Phone Bonus: 0.62 up to 40h, else flat 25
+  const phoneBonus = hours <= 40 ? 0.62 * hours : 25;
+  
+  // 2. Transport Bonus
+  // rates: Bike 0.55, Scooter 0.70, Car 0.85 per km
+  const transportRateMap: Record<Transport, number> = { 
+    bike: 0.55, 
+    scooter: 0.70,
+    car: 0.85
+  };
+  
+  const kmRate = transportRateMap[transportType] || 0;
+  const transportBonus = kilometers * kmRate;
+
+  // 3. Order Bonus (Tiers based on TOTAL orders)
+  const totalOrdersCount = weekdayOrders + weekendOrders;
+
+  // Weekday Multipliers (based on total count)
+  // 50-124: 1
+  // 125-249: 1
+  // 250-399: 1.5
+  // 400-549: 2
+  // 550+: 2.5
+  const getWeekdayMultiplier = (total: number) => {
+      if (total >= 550) return 2.5;
+      if (total >= 400) return 2;
+      if (total >= 250) return 1.5;
+      if (total >= 125) return 1;
+      if (total >= 50) return 1;
+      return 0;
+  };
+
+  // Weekend Multipliers (based on total count)
+  // 50-124: 1
+  // 125-249: 2
+  // 250-399: 3
+  // 400-549: 4
+  // 550+: 5
+  const getWeekendMultiplier = (total: number) => {
+      if (total >= 550) return 5;
+      if (total >= 400) return 4;
+      if (total >= 250) return 3;
+      if (total >= 125) return 2;
+      if (total >= 50) return 1;
+      return 0;
+  };
+
+  const weekdayMultiplier = getWeekdayMultiplier(totalOrdersCount);
+  const weekendMultiplier = getWeekendMultiplier(totalOrdersCount);
+
+  const weekdayBonus = weekdayOrders * weekdayMultiplier;
+  const weekendBonus = weekendOrders * weekendMultiplier;
+  const ordersBonus = weekdayBonus + weekendBonus;
+
+  // 4. Brutto Calculation
+  const hoursBase = hours * hourlyRate;
+  const washingBonus = hours * washingRate;
+  
+  // Grouping "Hours Earned" for display (Base + Washing + Phone)
+  const hoursBrutto = hoursBase + washingBonus + phoneBonus;
+  const transportBrutto = transportBonus;
+  const ordersBrutto = ordersBonus;
+  const tipsBrutto = tips;
+  
+  const totalBrutto = hoursBrutto + transportBrutto + ordersBrutto + tipsBrutto;
+
+  // 5. Netto Calculation
+  // Simplified: Brutto minus 27.55%
+  const nettoDeductionRate = 0.2755;
+  const totalNetto = totalBrutto * (1 - nettoDeductionRate);
+
+  // Distribute Netto proportionally for display
+  const ratio = totalBrutto > 0 ? totalNetto / totalBrutto : 0;
+
+  const hoursNetto = hoursBrutto * ratio;
+  const transportNetto = transportBrutto * ratio;
+  const ordersNetto = ordersBrutto * ratio;
+  const tipsNetto = tipsBrutto * ratio;
+
+  return {
+    hoursBrutto,
+    transportBrutto,
+    ordersBrutto,
+    tipsBrutto,
+    totalBrutto,
+    hoursNetto,
+    transportNetto,
+    ordersNetto,
+    tipsNetto,
+    totalNetto,
+    bhpNetto: 0 // Not displayed separately anymore
+  };
+};
